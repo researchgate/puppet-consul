@@ -47,3 +47,4 @@ matrix:
     services: docker
     script: bundle exec rake beaker
     bundler_args:
+    env: BEAKER_set="ubuntu-1404-x64:"

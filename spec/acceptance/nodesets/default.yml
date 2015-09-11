@@ -1,9 +1,15 @@
 HOSTS:
-  ubuntu-12-04:
-    platform: ubuntu-12.04-x64
-    image: solarkennedy/ubuntu-12.04-puppet
-    hypervisor: docker
-    docker_cmd: '["/sbin/init"]' 
+  ubuntu-1404-x64:
+    default_apply_opts:
+      order: random
+      strict_variables:
+    platform: ubuntu-14.04-amd64
+    hypervisor : docker
+    image: ubuntu:14.04
     docker_preserve_image: true
-CONFIG: 
+    docker_cmd: '["/sbin/init"]'
+    docker_image_commands:
+      - 'apt-get install -y wget'
+CONFIG:
   type: foss
+  log_level: debug
